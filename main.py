@@ -3,8 +3,10 @@ import os
 from flask import Flask, jsonify, request, send_file, send_from_directory, Response
 from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
+load_dotenv()
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCgGMCaq6L_1m8I4AJvnFTMUL7WXgUGmAM"
+os.environ["GOOGLE_API_KEY"] = os.environ.get("GOOGLE_API_KEY")
 
 app = Flask(__name__)
 
